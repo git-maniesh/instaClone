@@ -36,7 +36,7 @@ function StoryCard({storyData}) {
       </div>
 
 <div className='absolute top-[10px]  w-full h-[5px] bg-gray-900'>
-<div className='h-full w-[200px] bg-white transition-all duration-200 ease-linear' style={{width:`${progress}%`}}>
+<div className='h-full w-[200px] bg-[linear-gradient(115deg,_#f9ce34,_#ee2a7b,_#6228d7)] transition-all duration-200 ease-linear' style={{width:`${progress}%`}}>
 </div>
             </div>
       {!showViewers && <><div className='w-[full] h-[90vh]  flex  items-center justify-center '>
