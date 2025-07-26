@@ -37,13 +37,13 @@ const handleSignIn=async ()=>{
 
 
   return (
-    <div className='w-full h-screen bg-gradient-to-b from-black to-gray-900 flex flex-col justify-center items-center'>
+    <div className='w-full h-screen bg-gradient-to-b from-black to-orange-900 flex flex-col justify-center items-center'>
       <div className='w-[90%] lg:max-w-[60%]  h-[600px] bg-white rounded-2xl flex justify-center items-center overflow-hidden border-2 border-[#1a1f23]'>
 <div className='w-full lg:w-[50%] h-full bg-white flex flex-col items-center justify-center p-[10px] gap-[20px]'>
 
 <div className='flex gap-[10px] items-center text-[20px] font-semibold mt-[40px]'>
     <span>Sign In to </span>
-    <img src={logo} alt="" className='w-[70px]'/>
+    <img src={logo} alt="" className='w-[50px]'/>
 </div>
 
 
@@ -68,8 +68,8 @@ const handleSignIn=async ()=>{
 </div>
 <div className='md:w-[50%] h-full hidden lg:flex justify-center items-center bg-[#000000] flex-col gap-[10px] text-white text-[16px] font-semibold rounded-l-[30px] shadow-2xl shadow-black'>
 
-<img src={logo1} alt="" className='w-[40%]'/>
-<p >Not Just A Platform , It's A VYBE</p>
+<img src={logo1} alt="" className='w-[20%]'/>
+<p >Just another Clone -🤩🤩</p>
 </div>
       </div>
     </div>

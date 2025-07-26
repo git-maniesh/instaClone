@@ -6,6 +6,8 @@ import { FiVolume2 } from "react-icons/fi";
 import { FiVolumeX } from "react-icons/fi";
 import dp from "../assets/dp.webp"
 import FollowButton from './FollowButton';
+import { FaHeartPulse } from "react-icons/fa6";
+import { TbHeartBroken } from "react-icons/tb";
 import { GoHeart } from "react-icons/go";
 import { GoHeartFill } from "react-icons/go";
 import { useDispatch, useSelector } from 'react-redux';
@@ -17,7 +19,7 @@ import { IoSendSharp } from "react-icons/io5";
 function LoopCard({ loop }) {
     const videoRef = useRef()
 const [isPlaying,setIsPlaying]=useState(true)
-const [isMute,setIsMute]=useState(true)
+const [isMute,setIsMute]=useState(false)
 const [progress,setProgress]=useState(0)
 const {userData}=useSelector(state=>state.user)
 const {socket}=useSelector(state=>state.socket)
@@ -135,7 +137,7 @@ if(showComment){
         <div className='w-full lg:w-[480px] h-[100vh] flex items-center justify-center border-l-2 border-r-2 border-gray-800  relative overflow-hidden'>
 
 {showHeart && <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 heart-animation  z-50'>
-   <GoHeartFill className='w-[100px]  h-[100px] text-white drop-shadow-2xl' /> 
+   <FaHeartPulse className='w-[100px]  h-[100px] text-red-600  drop-shadow-2xl' /> 
 </div>}
 
 <div ref={commentRef} className={`absolute z-[200] bottom-0 w-full h-[500px] p-[10px]  rounded-t-4xl bg-[#0e1718] transform transition-transform duration-500 ease-in-out left-0 shadow-2xl shadow-black ${showComment?"translate-y-0":"translate-y-[100%] "}`}>
@@ -169,12 +171,12 @@ if(showComment){
 
 
 
-            <video ref={videoRef} autoPlay muted loop src={loop?.media} className='w-full max-h-full' onClick={handleClick} onTimeUpdate={handleTimeUpdate} onDoubleClick={handleLikeOnDoubleClick}/>
+            <video ref={videoRef} autoPlay muted={isMute} loop src={loop?.media} className='w-full max-h-full' onClick={handleClick} onTimeUpdate={handleTimeUpdate} onDoubleClick={handleLikeOnDoubleClick}/>
             <div className='absolute top-[20px] z-[100] right-[20px] ' onClick={()=>setIsMute(prev=>!prev)}>
    {!isMute?<FiVolume2 className='w-[20px] h-[20px] text-white font-semibold'/>:<FiVolumeX className='w-[20px] h-[20px] text-white font-semibold'/>}
             </div>
             <div className='absolute bottom-0  w-full h-[5px] bg-gray-900'>
-<div className='h-full w-[200px] bg-white transition-all duration-200 ease-linear' style={{width:`${progress}%`}}>
+<div className='h-full w-[200px] bg-[linear-gradient(115deg,_#f9ce34,_#ee2a7b,_#6228d7)] transition-all duration-200 ease-linear' style={{width:`${progress}%`}}>
 </div>
             </div>
 
@@ -194,12 +196,12 @@ if(showComment){
          <div className='absolute right-0 flex flex-col gap-[20px] text-white  bottom-[150px] justify-center px-[10px] '>
 <div className='flex flex-col items-center cursor-pointer'>
     <div onClick={handleLike}>
-        {!loop.likes.includes(userData._id) && <GoHeart className='w-[25px] cursor-pointer h-[25px]'/>}
-                   {loop.likes.includes(userData._id) && <GoHeartFill className='w-[25px] cursor-pointer h-[25px] text-red-600' />} 
+        {!loop.likes.includes(userData._id) && <TbHeartBroken className='w-[25px] cursor-pointer h-[25px]'/>}
+                   {loop.likes.includes(userData._id) && <FaHeartPulse className='w-[25px] cursor-pointer h-[25px] text-red-600' />} 
     </div>
     <div >{loop.likes.length}</div>
 </div>
-<div className='flex flex-col items-center cursor-pointer' onClick={()=>setShowComment(true)}>
+<div className='flex flex-col items-center cursor-poinproter' onClick={()=>setShowComment(true)}>
     <div><MdOutlineComment className='w-[25px] cursor-pointer h-[25px]'/></div>
     <div>{loop.comments.length}</div>
 </div>

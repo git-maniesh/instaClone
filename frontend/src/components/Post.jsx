@@ -4,7 +4,12 @@ import VideoPlayer from './VideoPlayer'
 import { GoHeart } from "react-icons/go";
 import { useDispatch, useSelector } from 'react-redux';
 import { GoHeartFill } from "react-icons/go";
+import { FaHeartPulse } from "react-icons/fa6";
+import { TbHeartBroken } from "react-icons/tb";
+
 import { MdOutlineComment } from "react-icons/md";
+import { BsBookmarkStarFill } from "react-icons/bs";
+import { BsBookmarkStar } from "react-icons/bs";
 import { MdOutlineBookmarkBorder } from "react-icons/md";
 import { GoBookmarkFill } from "react-icons/go";
 import { IoSendSharp } from "react-icons/io5";
@@ -97,8 +102,8 @@ socket?.on("commentedPost",(updatedData)=>{
       <div className='w-full h-[60px] flex justify-between items-center px-[20px] mt-[10px]'>
         <div className='flex justify-center items-center gap-[10px] '>
           <div className='flex justify-center items-center gap-[5px]'>
-            {!post.likes.includes(userData._id) && <GoHeart className='w-[25px] cursor-pointer h-[25px]' onClick={handleLike}/>}
-            {post.likes.includes(userData._id) && <GoHeartFill className='w-[25px] cursor-pointer h-[25px] text-red-600' onClick={handleLike}/>}
+            {!post.likes.includes(userData._id) && <TbHeartBroken className='w-[25px] cursor-pointer h-[25px]' onClick={handleLike}/>}
+            {post.likes.includes(userData._id) && <FaHeartPulse className='w-[25px] cursor-pointer h-[25px] text-red-600' onClick={handleLike}/>}
             <span >{post.likes.length}</span>
           </div>
           <div className='flex justify-center items-center gap-[5px]' onClick={()=>setShowComment(prev=>!prev)}>
@@ -107,8 +112,8 @@ socket?.on("commentedPost",(updatedData)=>{
           </div>
         </div>
         <div onClick={handleSaved}>
-          {!userData.saved.includes(post?._id) && <MdOutlineBookmarkBorder className='w-[25px] cursor-pointer h-[25px]' />}
-          {userData.saved.includes(post?._id) && <GoBookmarkFill className='w-[25px] cursor-pointer h-[25px]' />}
+          {!userData.saved.includes(post?._id) && <BsBookmarkStar className='w-[25px] cursor-pointer h-[25px]' />}
+          {userData.saved.includes(post?._id) && <BsBookmarkStarFill className='w-[25px] text-red-600 cursor-pointer h-[25px]' />}
         </div>
       </div>
       {post.caption && <div className='w-full px-[20px] gap-[10px] flex justify-start items-center '>

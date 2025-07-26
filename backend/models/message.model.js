@@ -14,7 +14,7 @@ message:{
 },
 image:{
     type:String  
-}
+},
 },{timestamps:true})
 
 const Message=mongoose.model("Message",messageSchema)

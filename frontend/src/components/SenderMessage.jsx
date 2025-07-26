@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { useSelector } from 'react-redux'
+import dp from "../assets/dp.webp"
 
 function SenderMessage({message}) {
     const {userData}=useSelector(state=>state.user)
@@ -17,7 +18,7 @@ scroll.current.scrollIntoView({behavior:"smooth"})
      {message.message && <div className='text-[18px] text-white wrap-break-word'>{message.message}</div>}  
 
      <div className='w-[30px] h-[30px]  rounded-full cursor-pointer overflow-hidden absolute right-[-25px] bottom-[-40px]'>
-        <img src={userData.profileImage} alt="" className='w-full object-cover'/>
+        <img src={userData?.profileImage || dp} alt="" className='w-full object-cover'/>
      </div>
     </div>
   )
