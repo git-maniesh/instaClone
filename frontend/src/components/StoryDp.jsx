@@ -45,7 +45,7 @@ navigate(`/story/${userName}`)
 }
   return (
     <div className='flex flex-col w-[80px]'>
-      <div className={`w-[80px] h-[80px] ${!story?null:!viewed?"bg-gradient-to-b  from-blue-500 to-blue-950":"bg-gradient-to-r from-gray-500 to-black-800"}  rounded-full flex items-center justify-center relative`}  onClick={handleClick}>
+      <div className={`w-[80px] h-[80px] ${!story?null:!viewed?"bg-[linear-gradient(115deg,_#f9ce34,_#ee2a7b,_#6228d7)]":"bg-gradient-to-r from-gray-500 to-black-800"}  rounded-full flex items-center justify-center relative`}  onClick={handleClick}>
       <div className='w-[70px] h-[70px] border-2 border-black rounded-full cursor-pointer overflow-hidden '>
           <img src={ProfileImage ||  dp} alt="" className='w-full object-cover'/>
           {!story && userName=="Your Story" && <div>
